@@ -1,0 +1,9 @@
+{
+ "embed_model": "BAAI/bge-m3",
+ "n_chunks": 47,
+ "dim": 1024,
+ "chunk_size": 500,
+ "overlap": 75,
+ "sentence_aware": false,
+ "built_at": "2026-10-13 13:31:25"
+}

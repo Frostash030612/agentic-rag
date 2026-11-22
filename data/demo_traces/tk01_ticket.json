@@ -1,0 +1,50 @@
+{
+ "task_id": "TK01",
+ "q": "T-1001 工单现在是什么状态？",
+ "kb": "dram",
+ "mode": "agent",
+ "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+ "answerable": true,
+ "citations": [
+  "T-1001"
+ ],
+ "missing": "",
+ "called_tools": [
+  "lookup_ticket"
+ ],
+ "steps": [
+  {
+   "n": 1,
+   "thought": "需要查询工单 T-1001 的状态",
+   "action": "lookup_ticket",
+   "action_input": {
+    "ticket_id": "T-1001"
+   },
+   "observation": "{\"found\": true, \"id\": \"T-1001\", \"title\": \"ALM-1042 腔体压力异常\", \"status\": \"open\", \"priority\": \"P1\", \"assignee\": \"设备工程师\", \"related_alarm\": \"ALM-1042\", \"created\": \"2026-11-10\", \"note\": \"已更换压力传感器，待跑 monitor wafer 复测\"}",
+   "latency_s": 1.6373205184936523,
+   "error": false
+  },
+  {
+   "n": 2,
+   "thought": "工单 T-1001 的状态已找到",
+   "action": "final",
+   "action_input": {
+    "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+    "citations": [
+     "T-1001"
+    ],
+    "answerable": true,
+    "missing": ""
+   },
+   "observation": "final",
+   "latency_s": 3.8761301040649414,
+   "error": false
+  }
+ ],
+ "latency_s": 5.513,
+ "error": "",
+ "trace_path": "",
+ "started_at": "2026-11-14T17:45:05",
+ "model": "Qwen/Qwen3-8B",
+ "embed_model": "BAAI/bge-m3"
+}

@@ -1,0 +1,38 @@
+# secrets
+.env
+*.key
+secrets.json
+
+# runtime
+runs/
+runs-test/
+.tmp/
+.dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache-files-*/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# python packaging
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# The bundled index is intentionally committed for a one-command demo.
+# Un-ignore it if this directory is committed from a parent repo that ignores
+# index directories / *.npy.
+!data/kb/*/index/
+!data/kb/*/index/**
+!data/kb/*/index/*.npy

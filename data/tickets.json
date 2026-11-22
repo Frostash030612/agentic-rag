@@ -1,0 +1,52 @@
+[
+  {
+    "id": "T-1001",
+    "title": "ALM-1042 腔体压力异常",
+    "status": "open",
+    "priority": "P1",
+    "assignee": "设备工程师",
+    "related_alarm": "ALM-1042",
+    "created": "2026-11-10",
+    "note": "已更换压力传感器，待跑 monitor wafer 复测"
+  },
+  {
+    "id": "T-1002",
+    "title": "SPC 连续 7 点上升",
+    "status": "in_progress",
+    "priority": "P2",
+    "assignee": "工艺工程师",
+    "related_alarm": null,
+    "created": "2026-11-11",
+    "note": "怀疑 R2R 控制器漂移，待检查 EWMA 更新"
+  },
+  {
+    "id": "T-1003",
+    "title": "批次良率偏低",
+    "status": "open",
+    "priority": "P1",
+    "assignee": "良率工程师",
+    "related_alarm": null,
+    "created": "2026-11-12",
+    "note": "24 片批次，良率 92.5%，待分析缺陷分布"
+  },
+  {
+    "id": "T-1004",
+    "title": "ALM-2087 射频反射功率过高",
+    "status": "closed",
+    "priority": "P1",
+    "assignee": "设备工程师",
+    "related_alarm": "ALM-2087",
+    "created": "2026-11-08",
+    "note": "匹配网络重新调谐后恢复，已关闭"
+  },
+  {
+    "id": "T-1005",
+    "title": "FDC 误报过多",
+    "status": "in_progress",
+    "priority": "P2",
+    "assignee": "APC 工程师",
+    "related_alarm": null,
+    "created": "2026-11-13",
+    "note": "正在调整 PCA 模型阈值，观察误报率"
+  }
+]

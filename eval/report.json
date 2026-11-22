@@ -1,0 +1,2388 @@
+{
+ "generated_at": "2026-11-22T14:41:33",
+ "tasks_file": "data\\tasks.jsonl",
+ "reports": {
+  "rag": {
+   "started_at": "2026-11-22T14:35:07",
+   "model": "Qwen/Qwen3-8B",
+   "embed_model": "BAAI/bge-m3",
+   "summary": {
+    "mode": "rag",
+    "runs": 1,
+    "n_tasks": 26,
+    "answer_rate": 0.6923,
+    "task_success_rate": 0.6923,
+    "tool_selection_rate": null,
+    "passk_rate": 0.6923,
+    "avg_steps": 1,
+    "avg_latency_s": 3.06,
+    "p95_latency_s": 5.72,
+    "errors": 0
+   },
+   "tasks": [
+    {
+     "id": "KB01",
+     "q": "CoT 和 ReAct 的本质区别是什么？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "CoT 和 ReAct 的本质区别在于：CoT 是纯推理链文字，而 ReAct 是 Thought + Action + Observation 交替的推理与行动闭环。CoT 让模型「更会想」，ReAct 让模型「在想的同时能动手，并用真实结果纠正自己」。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 4.18,
+       "error": "",
+       "trace": "runs\\rag\\KB01\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "CoT 和 ReAct 的本质区别在于：CoT 是纯推理链文字，而 ReAct 是 Thought + Action + Observation 交替的推理与行动闭环。CoT 让模型「更会想」，ReAct 让模型「在想的同时能动手，并用真实结果纠正自己」。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 4.18,
+      "error": "",
+      "trace": "runs\\rag\\KB01\\run-1.json"
+     }
+    },
+    {
+     "id": "KB02",
+     "q": "Recall@k 已经很高了，为什么用户还是觉得答不准？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "Recall@k 高并不意味着用户觉得答不准，因为 Recall@k 只衡量了**链路的最终答案正确率**，而用户可能更关注**链路的每一步是否正确**（中间答案准确率）或**排序质量**。此外，即使召回率高，如果排序不准确，也可能导致用户觉得答案不相关或不准确。因此，需要结合其他指标如 MRR、NDCG 或 Rerank 来评估整体效果 [1]。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 5.04,
+       "error": "",
+       "trace": "runs\\rag\\KB02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "Recall@k 高并不意味着用户觉得答不准，因为 Recall@k 只衡量了**链路的最终答案正确率**，而用户可能更关注**链路的每一步是否正确**（中间答案准确率）或**排序质量**。此外，即使召回率高，如果排序不准确，也可能导致用户觉得答案不相关或不准确。因此，需要结合其他指标如 MRR、NDCG 或 Rerank 来评估整体效果 [1]。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 5.04,
+      "error": "",
+      "trace": "runs\\rag\\KB02\\run-1.json"
+     }
+    },
+    {
+     "id": "KB03",
+     "q": "用户问法和文档里的说法完全不一样，怎么提高命中率？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "查询改写/改写/Multi-Query",
+        "HyDE/假设答案/假想答案"
+       ],
+       "tool_problems": [],
+       "answer": "可以通过使用Layout-aware解析和表格结构化技术来处理文档中的表格和图纸，同时结合版本metadata硬过滤确保引用的文档版本是最新的。此外，可以采用强制引用机制和拒答机制，防止模型编造工艺参数，并在检索层前置权限过滤。对于用户问法和文档说法不一致的情况，可以优化检索和生成过程，提高对不同工况上下文的区分能力，从而提高命中率。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 5.29,
+       "error": "",
+       "trace": "runs\\rag\\KB03\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "查询改写/改写/Multi-Query",
+       "HyDE/假设答案/假想答案"
+      ],
+      "tool_problems": [],
+      "answer": "可以通过使用Layout-aware解析和表格结构化技术来处理文档中的表格和图纸，同时结合版本metadata硬过滤确保引用的文档版本是最新的。此外，可以采用强制引用机制和拒答机制，防止模型编造工艺参数，并在检索层前置权限过滤。对于用户问法和文档说法不一致的情况，可以优化检索和生成过程，提高对不同工况上下文的区分能力，从而提高命中率。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 5.29,
+      "error": "",
+      "trace": "runs\\rag\\KB03\\run-1.json"
+     }
+    },
+    {
+     "id": "KB04",
+     "q": "生产环境里怎么防止 Agent 陷入无限循环？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "生产环境里防止 Agent 陷入无限循环的方法包括：设置 `max_iterations` 硬上限、重复检测（记录最近几步的 `(工具名, 参数哈希)`，重复调用去重并告警）、进度判断（要求模型每轮显式回答「我是否获得了足够信息」，无新增信息就升级跳出）、Observation 摘要（工具结果先摘要再入上下文，避免上下文越滚越乱导致模型迷失）、失败工具冷却/禁用（连续失败 N 次的工具进入冷却，防止反复撞墙）、Critic / Controller 节点（独立的判断器监控轨迹是否仍在朝目标前进）。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 6.74,
+       "error": "",
+       "trace": "runs\\rag\\KB04\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "生产环境里防止 Agent 陷入无限循环的方法包括：设置 `max_iterations` 硬上限、重复检测（记录最近几步的 `(工具名, 参数哈希)`，重复调用去重并告警）、进度判断（要求模型每轮显式回答「我是否获得了足够信息」，无新增信息就升级跳出）、Observation 摘要（工具结果先摘要再入上下文，避免上下文越滚越乱导致模型迷失）、失败工具冷却/禁用（连续失败 N 次的工具进入冷却，防止反复撞墙）、Critic / Controller 节点（独立的判断器监控轨迹是否仍在朝目标前进）。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 6.74,
+      "error": "",
+      "trace": "runs\\rag\\KB04\\run-1.json"
+     }
+    },
+    {
+     "id": "KB05",
+     "q": "长上下文窗口越来越大，是不是就不需要 RAG 了？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "不是，窗口大 ≠ 记忆好。长上下文模型在超长输入上的有效利用率通常远低于标称值，且成本和延迟是平方级的。所以长窗口和 RAG 是互补而非替代 [1]。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.45,
+       "error": "",
+       "trace": "runs\\rag\\KB05\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "不是，窗口大 ≠ 记忆好。长上下文模型在超长输入上的有效利用率通常远低于标称值，且成本和延迟是平方级的。所以长窗口和 RAG 是互补而非替代 [1]。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.45,
+      "error": "",
+      "trace": "runs\\rag\\KB05\\run-1.json"
+     }
+    },
+    {
+     "id": "KB06",
+     "q": "幻觉有哪些缓解手段？哪种最有效？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "幻觉的缓解手段包括 RAG、Function Calling、Structured Output + JSON Schema、Prompt 明确拒答和多轮验证 / 交叉校验。其中 RAG 是最有效的手段。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.5,
+       "error": "",
+       "trace": "runs\\rag\\KB06\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "幻觉的缓解手段包括 RAG、Function Calling、Structured Output + JSON Schema、Prompt 明确拒答和多轮验证 / 交叉校验。其中 RAG 是最有效的手段。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.5,
+      "error": "",
+      "trace": "runs\\rag\\KB06\\run-1.json"
+     }
+    },
+    {
+     "id": "KB07",
+     "q": "Transcript 和 Outcome 这两个概念的区别是什么？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "Transcript 是 Agent 在对话中说的内容，如'订单已创建'；Outcome 是实际执行的结果，如数据库里 Orders 表是空的。Agent 说的≠实际做的，评估 Agent 不能只看 Transcript，必须验证 Outcome。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 3.1,
+       "error": "",
+       "trace": "runs\\rag\\KB07\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "Transcript 是 Agent 在对话中说的内容，如'订单已创建'；Outcome 是实际执行的结果，如数据库里 Orders 表是空的。Agent 说的≠实际做的，评估 Agent 不能只看 Transcript，必须验证 Outcome。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 3.1,
+      "error": "",
+      "trace": "runs\\rag\\KB07\\run-1.json"
+     }
+    },
+    {
+     "id": "KB08",
+     "q": "pass@k 和 pass^k 分别表示什么？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "pass@k 表示 k 次尝试中至少 1 次成功的概率，适合 coding agent，一次过就行，给多次机会衡量最佳情况。pass^k 表示 k 次尝试全部成功的概率，适合 customer-facing agent——每次都必须是好的用户体验。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 3.1,
+       "error": "",
+       "trace": "runs\\rag\\KB08\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "pass@k 表示 k 次尝试中至少 1 次成功的概率，适合 coding agent，一次过就行，给多次机会衡量最佳情况。pass^k 表示 k 次尝试全部成功的概率，适合 customer-facing agent——每次都必须是好的用户体验。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 3.1,
+      "error": "",
+      "trace": "runs\\rag\\KB08\\run-1.json"
+     }
+    },
+    {
+     "id": "KB09",
+     "q": "四级 Ship Gate 是什么？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "四级 Ship Gate 是模型升级能否上线的评估流程，包括 Offline Diff、Shadow Traffic、A/B w/ Guardrails 和 Phased Rollout 四个阶段。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.04,
+       "error": "",
+       "trace": "runs\\rag\\KB09\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "四级 Ship Gate 是模型升级能否上线的评估流程，包括 Offline Diff、Shadow Traffic、A/B w/ Guardrails 和 Phased Rollout 四个阶段。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.04,
+      "error": "",
+      "trace": "runs\\rag\\KB09\\run-1.json"
+     }
+    },
+    {
+     "id": "KB10",
+     "q": "做自动评分时，code-based 和 LLM judge 怎么分工？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "在自动评分中，code-based 和 LLM judge 的分工是：code-based 负责检查技术准确性，如推荐的商品是否真实存在、价格是否符合预算、API 调用是否正确等；而 LLM judge 负责评分主观维度，如推荐理由是否个性化、语气是否专业且友好、是否注意到用户的隐含需求等。两者不是替换关系，而是层层递进的分工 [3]。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 3.44,
+       "error": "",
+       "trace": "runs\\rag\\KB10\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "在自动评分中，code-based 和 LLM judge 的分工是：code-based 负责检查技术准确性，如推荐的商品是否真实存在、价格是否符合预算、API 调用是否正确等；而 LLM judge 负责评分主观维度，如推荐理由是否个性化、语气是否专业且友好、是否注意到用户的隐含需求等。两者不是替换关系，而是层层递进的分工 [3]。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 3.44,
+      "error": "",
+      "trace": "runs\\rag\\KB10\\run-1.json"
+     }
+    },
+    {
+     "id": "KB11",
+     "q": "最小可用 Benchmark 要多少个 task？怎么分配？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "最小可用 Benchmark 是 150 个 task。这些 task 分配为四个 bucket：50 个 capability（日常意图，目标 30-50% pass rate，有区分度）、50 个 regression（历史 bug 固化，目标 100% pass）、30 个 adversarial（安全/边缘/OOD 压测）、20 个 multi-turn hard（复杂高难度任务） [1]。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 5.07,
+       "error": "",
+       "trace": "runs\\rag\\KB11\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "最小可用 Benchmark 是 150 个 task。这些 task 分配为四个 bucket：50 个 capability（日常意图，目标 30-50% pass rate，有区分度）、50 个 regression（历史 bug 固化，目标 100% pass）、30 个 adversarial（安全/边缘/OOD 压测）、20 个 multi-turn hard（复杂高难度任务） [1]。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 5.07,
+      "error": "",
+      "trace": "runs\\rag\\KB11\\run-1.json"
+     }
+    },
+    {
+     "id": "KB12",
+     "q": "ALM-1042 报警的触发条件和处理步骤是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "ALM-1042 报警的触发条件是腔体压力偏离设定值超过 8% 且持续 3 秒以上。处理步骤包括：1. 暂停当前批次（lot），记录 wafer ID 与当前 step；2. 检查真空泵电流是否在正常区间；3. 用标准压力规校验传感器读数与显示值偏差；4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间；5. 恢复前必须跑一片 monitor wafer 确认。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 5.72,
+       "error": "",
+       "trace": "runs\\rag\\KB12\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "ALM-1042 报警的触发条件是腔体压力偏离设定值超过 8% 且持续 3 秒以上。处理步骤包括：1. 暂停当前批次（lot），记录 wafer ID 与当前 step；2. 检查真空泵电流是否在正常区间；3. 用标准压力规校验传感器读数与显示值偏差；4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间；5. 恢复前必须跑一片 monitor wafer 确认。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 5.72,
+      "error": "",
+      "trace": "runs\\rag\\KB12\\run-1.json"
+     }
+    },
+    {
+     "id": "KB13",
+     "q": "SPC 控制图有哪些判异规则？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "SPC 控制图的判异规则包括：1. 单点超出 ±3σ；2. 连续 3 点中有 2 点超出 ±2σ（同侧）；3. 连续 5 点中有 4 点超出 ±1σ（同侧）；4. 连续 8 点在中心线同侧；5. 连续 7 点持续上升或下降（趋势）[1]。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 4.71,
+       "error": "",
+       "trace": "runs\\rag\\KB13\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "SPC 控制图的判异规则包括：1. 单点超出 ±3σ；2. 连续 3 点中有 2 点超出 ±2σ（同侧）；3. 连续 5 点中有 4 点超出 ±1σ（同侧）；4. 连续 8 点在中心线同侧；5. 连续 7 点持续上升或下降（趋势）[1]。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 4.71,
+      "error": "",
+      "trace": "runs\\rag\\KB13\\run-1.json"
+     }
+    },
+    {
+     "id": "KB14",
+     "q": "APC 的三层分别负责什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "APC 的三层分别负责：1. FDC（故障检测与分类）负责从设备传感器数据实时判断「这台机台这一批是否正常」；2. VM（虚拟量测）负责预测无法每片实测的量测值，提供反馈信号；3. R2R（批次间控制）负责用上一批的结果反馈调整下一批的工艺参数。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 4.11,
+       "error": "",
+       "trace": "runs\\rag\\KB14\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "APC 的三层分别负责：1. FDC（故障检测与分类）负责从设备传感器数据实时判断「这台机台这一批是否正常」；2. VM（虚拟量测）负责预测无法每片实测的量测值，提供反馈信号；3. R2R（批次间控制）负责用上一批的结果反馈调整下一批的工艺参数。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 4.11,
+      "error": "",
+      "trace": "runs\\rag\\KB14\\run-1.json"
+     }
+    },
+    {
+     "id": "KB15",
+     "q": "ALM-2087 报警应该怎么处理？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "处理 ALM-2087 报警应先做匹配网络自动调谐；若无效，检查电极积碳并安排预防性维护（PM）[2]。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.55,
+       "error": "",
+       "trace": "runs\\rag\\KB15\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "处理 ALM-2087 报警应先做匹配网络自动调谐；若无效，检查电极积碳并安排预防性维护（PM）[2]。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.55,
+      "error": "",
+      "trace": "runs\\rag\\KB15\\run-1.json"
+     }
+    },
+    {
+     "id": "TK01",
+     "q": "T-1001 工单现在是什么状态？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "open"
+       ],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.82,
+       "error": "",
+       "trace": "runs\\rag\\TK01\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "open"
+      ],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.82,
+      "error": "",
+      "trace": "runs\\rag\\TK01\\run-1.json"
+     }
+    },
+    {
+     "id": "TK02",
+     "q": "T-1002 工单的优先级是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "P2"
+       ],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.54,
+       "error": "",
+       "trace": "runs\\rag\\TK02\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "P2"
+      ],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.54,
+      "error": "",
+      "trace": "runs\\rag\\TK02\\run-1.json"
+     }
+    },
+    {
+     "id": "TK03",
+     "q": "T-9999 工单现在是什么状态？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "T-9999"
+       ],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.8,
+       "error": "",
+       "trace": "runs\\rag\\TK03\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "T-9999"
+      ],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.8,
+      "error": "",
+      "trace": "runs\\rag\\TK03\\run-1.json"
+     }
+    },
+    {
+     "id": "TK04",
+     "q": "T-1004 涉及哪个报警码，处理结果是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "ALM-2087"
+       ],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.79,
+       "error": "",
+       "trace": "runs\\rag\\TK04\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "ALM-2087"
+      ],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.79,
+      "error": "",
+      "trace": "runs\\rag\\TK04\\run-1.json"
+     }
+    },
+    {
+     "id": "CA01",
+     "q": "某批次 24 片，良率 92.5%，良品多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "22.2"
+       ],
+       "tool_problems": [],
+       "answer": "该批次良品数量为 22 片。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.58,
+       "error": "",
+       "trace": "runs\\rag\\CA01\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "22.2"
+      ],
+      "tool_problems": [],
+      "answer": "该批次良品数量为 22 片。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.58,
+      "error": "",
+      "trace": "runs\\rag\\CA01\\run-1.json"
+     }
+    },
+    {
+     "id": "CA02",
+     "q": "每片测试 45 秒，24 片需要多少分钟？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "每片测试45秒，24片需要45 * 24 = 1080秒，即18分钟。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.04,
+       "error": "",
+       "trace": "runs\\rag\\CA02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "每片测试45秒，24片需要45 * 24 = 1080秒，即18分钟。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.04,
+      "error": "",
+      "trace": "runs\\rag\\CA02\\run-1.json"
+     }
+    },
+    {
+     "id": "CA03",
+     "q": "3 个腔体，每个 12 片，一共多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "3 个腔体，每个 12 片，一共 36 片。",
+       "answerable": true,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.04,
+       "error": "",
+       "trace": "runs\\rag\\CA03\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "3 个腔体，每个 12 片，一共 36 片。",
+      "answerable": true,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.04,
+      "error": "",
+      "trace": "runs\\rag\\CA03\\run-1.json"
+     }
+    },
+    {
+     "id": "MX01",
+     "q": "T-1001 涉及的报警应该怎么处理？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket",
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "真空泵/真空/抽气"
+       ],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.76,
+       "error": "",
+       "trace": "runs\\rag\\MX01\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "真空泵/真空/抽气"
+      ],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.76,
+      "error": "",
+      "trace": "runs\\rag\\MX01\\run-1.json"
+     }
+    },
+    {
+     "id": "MX02",
+     "q": "T-1003 的批次良率是多少？如果 24 片，良品多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket",
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "92.5",
+        "22.2/22片/22 片/22"
+       ],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 2.01,
+       "error": "",
+       "trace": "runs\\rag\\MX02\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "92.5",
+       "22.2/22片/22 片/22"
+      ],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 2.01,
+      "error": "",
+      "trace": "runs\\rag\\MX02\\run-1.json"
+     }
+    },
+    {
+     "id": "UA01",
+     "q": "EUV 光刻的曝光波长是多少纳米？",
+     "kb": "dram",
+     "answerable": false,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.65,
+       "error": "",
+       "trace": "runs\\rag\\UA01\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.65,
+      "error": "",
+      "trace": "runs\\rag\\UA01\\run-1.json"
+     }
+    },
+    {
+     "id": "UA02",
+     "q": "我们公司去年因为设备故障损失了多少产能？",
+     "kb": "dram",
+     "answerable": false,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [],
+       "steps": 1,
+       "latency_s": 1.6,
+       "error": "",
+       "trace": "runs\\rag\\UA02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [],
+      "steps": 1,
+      "latency_s": 1.6,
+      "error": "",
+      "trace": "runs\\rag\\UA02\\run-1.json"
+     }
+    }
+   ]
+  },
+  "agent": {
+   "started_at": "2026-11-22T14:37:19",
+   "model": "Qwen/Qwen3-8B",
+   "embed_model": "BAAI/bge-m3",
+   "summary": {
+    "mode": "agent",
+    "runs": 1,
+    "n_tasks": 26,
+    "answer_rate": 0.9231,
+    "task_success_rate": 0.9231,
+    "tool_selection_rate": 1.0,
+    "passk_rate": 0.9231,
+    "avg_steps": 2.15,
+    "avg_latency_s": 7.78,
+    "p95_latency_s": 12.43,
+    "errors": 0
+   },
+   "tasks": [
+    {
+     "id": "KB01",
+     "q": "CoT 和 ReAct 的本质区别是什么？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "CoT 和 ReAct 的本质区别如下：\n1. CoT 是纯推理链，而 ReAct 包含推理、行动和观察的交替过程。\n2. CoT 通常不涉及外部环境，而 ReAct 依赖工具和外部反馈。\n3. ReAct 的纠错主要依赖外部真实反馈，而 CoT 主要靠模型自省。\n4. CoT 是 ReAct 的子集，ReAct 的 Thought 部分即为 CoT，二者不是竞争关系。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 10.17,
+       "error": "",
+       "trace": "runs\\agent\\KB01\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "CoT 和 ReAct 的本质区别如下：\n1. CoT 是纯推理链，而 ReAct 包含推理、行动和观察的交替过程。\n2. CoT 通常不涉及外部环境，而 ReAct 依赖工具和外部反馈。\n3. ReAct 的纠错主要依赖外部真实反馈，而 CoT 主要靠模型自省。\n4. CoT 是 ReAct 的子集，ReAct 的 Thought 部分即为 CoT，二者不是竞争关系。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 10.17,
+      "error": "",
+      "trace": "runs\\agent\\KB01\\run-1.json"
+     }
+    },
+    {
+     "id": "KB02",
+     "q": "Recall@k 已经很高了，为什么用户还是觉得答不准？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "Recall@k 高但用户仍觉得答不准的可能原因包括：\n1. 链路的每一步是否正确（中间答案准确率）未被验证。\n2. 端到端的最终答案正确率未被评估。\n3. 召回的文档可能不完整或不相关，导致答案不准确。\n4. 混合检索未接 rerank，排序质量可能不足。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 7.97,
+       "error": "",
+       "trace": "runs\\agent\\KB02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "Recall@k 高但用户仍觉得答不准的可能原因包括：\n1. 链路的每一步是否正确（中间答案准确率）未被验证。\n2. 端到端的最终答案正确率未被评估。\n3. 召回的文档可能不完整或不相关，导致答案不准确。\n4. 混合检索未接 rerank，排序质量可能不足。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 7.97,
+      "error": "",
+      "trace": "runs\\agent\\KB02\\run-1.json"
+     }
+    },
+    {
+     "id": "KB03",
+     "q": "用户问法和文档里的说法完全不一样，怎么提高命中率？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "提高任务与文档匹配度的命中率，可以采取以下方法：\n1. 使用查询改写技术，将用户口语化的问题转化为检索友好的形式。\n2. 生成多个查询变体并行检索，提升覆盖率。\n3. 应用 HyDE（假设性文档嵌入）策略，通过假想文档提升语义匹配度。\n4. 采用 RAG-Fusion 方法，结合多通道检索与结果融合，提高准确性。\n5. 在每轮注入原始目标，防止上下文漂移。\n6. 优化 Prompt，减少不必要的推理步骤。\n7. 使用语义缓存，提升语义相近查询的命中率。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 10.9,
+       "error": "",
+       "trace": "runs\\agent\\KB03\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "提高任务与文档匹配度的命中率，可以采取以下方法：\n1. 使用查询改写技术，将用户口语化的问题转化为检索友好的形式。\n2. 生成多个查询变体并行检索，提升覆盖率。\n3. 应用 HyDE（假设性文档嵌入）策略，通过假想文档提升语义匹配度。\n4. 采用 RAG-Fusion 方法，结合多通道检索与结果融合，提高准确性。\n5. 在每轮注入原始目标，防止上下文漂移。\n6. 优化 Prompt，减少不必要的推理步骤。\n7. 使用语义缓存，提升语义相近查询的命中率。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 10.9,
+      "error": "",
+      "trace": "runs\\agent\\KB03\\run-1.json"
+     }
+    },
+    {
+     "id": "KB04",
+     "q": "生产环境里怎么防止 Agent 陷入无限循环？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "防止 Agent 陷入无限循环的方法包括：\n1. 设置 `max_iterations` 硬上限。\n2. 通过记录最近几步的 `(工具名, 参数哈希)` 来检测重复调用并告警。\n3. 要求模型每轮显式回答「我是否获得了足够信息」，若无新增信息则升级跳出。\n4. 工具结果先摘要再入上下文，避免上下文越滚越乱导致模型迷失。\n5. 对连续失败 N 次的工具进行冷却/禁用，防止反复撞墙。\n6. 引入 Critic / Controller 节点监控轨迹是否仍在朝目标前进。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.87,
+       "error": "",
+       "trace": "runs\\agent\\KB04\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "防止 Agent 陷入无限循环的方法包括：\n1. 设置 `max_iterations` 硬上限。\n2. 通过记录最近几步的 `(工具名, 参数哈希)` 来检测重复调用并告警。\n3. 要求模型每轮显式回答「我是否获得了足够信息」，若无新增信息则升级跳出。\n4. 工具结果先摘要再入上下文，避免上下文越滚越乱导致模型迷失。\n5. 对连续失败 N 次的工具进行冷却/禁用，防止反复撞墙。\n6. 引入 Critic / Controller 节点监控轨迹是否仍在朝目标前进。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 9.87,
+      "error": "",
+      "trace": "runs\\agent\\KB04\\run-1.json"
+     }
+    },
+    {
+     "id": "KB05",
+     "q": "长上下文窗口越来越大，是不是就不需要 RAG 了？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "成本/费用/价格"
+       ],
+       "tool_problems": [],
+       "answer": "长上下文窗口和 RAG 是互补而非替代的关系。即使窗口较大，仍需通过 RAG 精准控制上下文内容，以避免 Lost in the Middle 和上下文腐化问题。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 7.17,
+       "error": "",
+       "trace": "runs\\agent\\KB05\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "成本/费用/价格"
+      ],
+      "tool_problems": [],
+      "answer": "长上下文窗口和 RAG 是互补而非替代的关系。即使窗口较大，仍需通过 RAG 精准控制上下文内容，以避免 Lost in the Middle 和上下文腐化问题。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 7.17,
+      "error": "",
+      "trace": "runs\\agent\\KB05\\run-1.json"
+     }
+    },
+    {
+     "id": "KB06",
+     "q": "幻觉有哪些缓解手段？哪种最有效？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "幻觉的缓解手段包括：1. RAG（将真实资料塞进上下文）；2. Function Calling（调用真实接口查数据）；3. Structured Output（格式约束）；4. Prompt 明确拒答（如未提及则直接回答）；5. 多轮验证 / 交叉校验。其中，RAG 是最有效的手段。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 8.78,
+       "error": "",
+       "trace": "runs\\agent\\KB06\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "幻觉的缓解手段包括：1. RAG（将真实资料塞进上下文）；2. Function Calling（调用真实接口查数据）；3. Structured Output（格式约束）；4. Prompt 明确拒答（如未提及则直接回答）；5. 多轮验证 / 交叉校验。其中，RAG 是最有效的手段。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 8.78,
+      "error": "",
+      "trace": "runs\\agent\\KB06\\run-1.json"
+     }
+    },
+    {
+     "id": "KB07",
+     "q": "Transcript 和 Outcome 这两个概念的区别是什么？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "1. Transcript 是 Agent 在对话中表达的内容，如'订单已创建'。\n2. Outcome 是 Agent 实际执行后的结果，如数据库中 Orders 表为空。\n3. 两者区别在于 Transcript 是表面输出，Outcome 是实际效果。\n4. 评估 Agent 时不能仅看 Transcript，必须验证 Outcome。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb",
+        "search_kb"
+       ],
+       "steps": 3,
+       "latency_s": 9.8,
+       "error": "",
+       "trace": "runs\\agent\\KB07\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "1. Transcript 是 Agent 在对话中表达的内容，如'订单已创建'。\n2. Outcome 是 Agent 实际执行后的结果，如数据库中 Orders 表为空。\n3. 两者区别在于 Transcript 是表面输出，Outcome 是实际效果。\n4. 评估 Agent 时不能仅看 Transcript，必须验证 Outcome。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb",
+       "search_kb"
+      ],
+      "steps": 3,
+      "latency_s": 9.8,
+      "error": "",
+      "trace": "runs\\agent\\KB07\\run-1.json"
+     }
+    },
+    {
+     "id": "KB08",
+     "q": "pass@k 和 pass^k 分别表示什么？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "1. pass@k 表示 k 次尝试中至少 1 次成功的概率，适合 coding agent，衡量最佳情况。\n2. pass^k 表示 k 次尝试全部成功的概率，适合 customer-facing agent，确保每次用户体验良好。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 6.64,
+       "error": "",
+       "trace": "runs\\agent\\KB08\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "1. pass@k 表示 k 次尝试中至少 1 次成功的概率，适合 coding agent，衡量最佳情况。\n2. pass^k 表示 k 次尝试全部成功的概率，适合 customer-facing agent，确保每次用户体验良好。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 6.64,
+      "error": "",
+      "trace": "runs\\agent\\KB08\\run-1.json"
+     }
+    },
+    {
+     "id": "KB09",
+     "q": "四级 Ship Gate 是什么？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "四级 Ship Gate 是模型升级上线的四个阶段，具体包括：\n1. Offline Diff：同 task 新旧版本各 5 trial，进行 paired comparison 和 bootstrap CI。\n2. Shadow Traffic：新 agent 跑 prod 流量但不 serve 用户，观察 24h divergence pattern。\n3. A/B w/ Guardrails：10% 流量，primary metric + guardrails（投诉/安全/成本/延迟），只有 guardrail 触发才 early stop。\n4. Phased Rollout：1% → 10% → 50% → 100%，每阶段最小观察时间，自动 rollback 条件预定义。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.27,
+       "error": "",
+       "trace": "runs\\agent\\KB09\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "四级 Ship Gate 是模型升级上线的四个阶段，具体包括：\n1. Offline Diff：同 task 新旧版本各 5 trial，进行 paired comparison 和 bootstrap CI。\n2. Shadow Traffic：新 agent 跑 prod 流量但不 serve 用户，观察 24h divergence pattern。\n3. A/B w/ Guardrails：10% 流量，primary metric + guardrails（投诉/安全/成本/延迟），只有 guardrail 触发才 early stop。\n4. Phased Rollout：1% → 10% → 50% → 100%，每阶段最小观察时间，自动 rollback 条件预定义。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 9.27,
+      "error": "",
+      "trace": "runs\\agent\\KB09\\run-1.json"
+     }
+    },
+    {
+     "id": "KB10",
+     "q": "做自动评分时，code-based 和 LLM judge 怎么分工？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "1. code-based 负责检查技术性问题，如推荐的商品是否存在、价格是否符合预算、API 调用是否正确等，作为守门员拦住明显错误。\n2. LLM judge 负责评分主观维度，如推荐理由的个性化、语气的专业性与友好性、是否注意到用户的隐含需求等，作为艺术评委捕捉细微差别。\n3. 两者不是替代关系，而是层层递进，code-based 用于验证 Outcome，LLM judge 用于评估表现质量。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.47,
+       "error": "",
+       "trace": "runs\\agent\\KB10\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "1. code-based 负责检查技术性问题，如推荐的商品是否存在、价格是否符合预算、API 调用是否正确等，作为守门员拦住明显错误。\n2. LLM judge 负责评分主观维度，如推荐理由的个性化、语气的专业性与友好性、是否注意到用户的隐含需求等，作为艺术评委捕捉细微差别。\n3. 两者不是替代关系，而是层层递进，code-based 用于验证 Outcome，LLM judge 用于评估表现质量。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 9.47,
+      "error": "",
+      "trace": "runs\\agent\\KB10\\run-1.json"
+     }
+    },
+    {
+     "id": "KB11",
+     "q": "最小可用 Benchmark 要多少个 task？怎么分配？",
+     "kb": "agent_eval",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "最小可用 Benchmark 需要 150 个 task，分配方法如下：\n1. 50 个 capability（日常意图，目标 30-50% pass rate，有区分度）。\n2. 50 个 regression（历史 bug 固化，目标 100% pass）。\n3. 30 个 adversarial（安全/边缘/OOD 压测）。\n4. 20 个 multi-turn hard（复杂高难度任务）。\n\n构建过程包括：\n1. 从 production logs 和用户投诉中挖掘任务。\n2. 用 embedding 聚类理解用户意图分布。\n3. 按 cluster 采样确保 coverage。\n4. 每个 task 标注 reference solution 和 pass 标准。\n5. 两位 SME 独立标注，IAA < 0.6 就重写 task。\n6. 平衡正负样本。\n7. 加入 adversarial 压测 case。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 12.43,
+       "error": "",
+       "trace": "runs\\agent\\KB11\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "最小可用 Benchmark 需要 150 个 task，分配方法如下：\n1. 50 个 capability（日常意图，目标 30-50% pass rate，有区分度）。\n2. 50 个 regression（历史 bug 固化，目标 100% pass）。\n3. 30 个 adversarial（安全/边缘/OOD 压测）。\n4. 20 个 multi-turn hard（复杂高难度任务）。\n\n构建过程包括：\n1. 从 production logs 和用户投诉中挖掘任务。\n2. 用 embedding 聚类理解用户意图分布。\n3. 按 cluster 采样确保 coverage。\n4. 每个 task 标注 reference solution 和 pass 标准。\n5. 两位 SME 独立标注，IAA < 0.6 就重写 task。\n6. 平衡正负样本。\n7. 加入 adversarial 压测 case。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 12.43,
+      "error": "",
+      "trace": "runs\\agent\\KB11\\run-1.json"
+     }
+    },
+    {
+     "id": "KB12",
+     "q": "ALM-1042 报警的触发条件和处理步骤是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "ALM-1042 报警的触发条件是：腔体压力偏离设定值超过 8% 且持续 3 秒以上。处理步骤包括：1. 暂停当前批次（lot），记录 wafer ID 与当前 step；2. 检查真空泵电流是否在正常区间；3. 用标准压力规校验传感器读数与显示值偏差；4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间；5. 恢复前必须跑一片 monitor wafer 确认。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.29,
+       "error": "",
+       "trace": "runs\\agent\\KB12\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "ALM-1042 报警的触发条件是：腔体压力偏离设定值超过 8% 且持续 3 秒以上。处理步骤包括：1. 暂停当前批次（lot），记录 wafer ID 与当前 step；2. 检查真空泵电流是否在正常区间；3. 用标准压力规校验传感器读数与显示值偏差；4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间；5. 恢复前必须跑一片 monitor wafer 确认。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 9.29,
+      "error": "",
+      "trace": "runs\\agent\\KB12\\run-1.json"
+     }
+    },
+    {
+     "id": "KB13",
+     "q": "SPC 控制图有哪些判异规则？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "SPC 控制图的判异规则包括：\n1. 单点超出 ±3σ。\n2. 连续 3 点中有 2 点超出 ±2σ（同侧）。\n3. 连续 5 点中有 4 点超出 ±1σ（同侧）。\n4. 连续 8 点在中心线同侧。\n5. 连续 7 点持续上升或下降（趋势）。\n这些规则用于识别过程失控的非随机模式。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.05,
+       "error": "",
+       "trace": "runs\\agent\\KB13\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "SPC 控制图的判异规则包括：\n1. 单点超出 ±3σ。\n2. 连续 3 点中有 2 点超出 ±2σ（同侧）。\n3. 连续 5 点中有 4 点超出 ±1σ（同侧）。\n4. 连续 8 点在中心线同侧。\n5. 连续 7 点持续上升或下降（趋势）。\n这些规则用于识别过程失控的非随机模式。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 9.05,
+      "error": "",
+      "trace": "runs\\agent\\KB13\\run-1.json"
+     }
+    },
+    {
+     "id": "KB14",
+     "q": "APC 的三层分别负责什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "APC 的三层分别负责：\n1. **FDC（故障检测与分类）**：从设备传感器数据实时判断「这台机台这一批是否正常」，属于检测层。\n2. **VM（虚拟量测）**：预测无法每片实测的量测值，提供反馈信号，属于观测层。\n3. **R2R（批次间控制）**：用上一批的结果反馈调整下一批的工艺参数，属于控制层。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 8.39,
+       "error": "",
+       "trace": "runs\\agent\\KB14\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "APC 的三层分别负责：\n1. **FDC（故障检测与分类）**：从设备传感器数据实时判断「这台机台这一批是否正常」，属于检测层。\n2. **VM（虚拟量测）**：预测无法每片实测的量测值，提供反馈信号，属于观测层。\n3. **R2R（批次间控制）**：用上一批的结果反馈调整下一批的工艺参数，属于控制层。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 8.39,
+      "error": "",
+      "trace": "runs\\agent\\KB14\\run-1.json"
+     }
+    },
+    {
+     "id": "KB15",
+     "q": "ALM-2087 报警应该怎么处理？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "处理 ALM-2087 报警（射频反射功率过高）的步骤如下：\n1. 先做匹配网络自动调谐。\n2. 若无效，检查电极积碳并安排预防性维护（PM）。\n3. 注意：该报警频繁出现会导致刻蚀速率不稳定，进而造成 CD 偏差。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 6.95,
+       "error": "",
+       "trace": "runs\\agent\\KB15\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "处理 ALM-2087 报警（射频反射功率过高）的步骤如下：\n1. 先做匹配网络自动调谐。\n2. 若无效，检查电极积碳并安排预防性维护（PM）。\n3. 注意：该报警频繁出现会导致刻蚀速率不稳定，进而造成 CD 偏差。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 6.95,
+      "error": "",
+      "trace": "runs\\agent\\KB15\\run-1.json"
+     }
+    },
+    {
+     "id": "TK01",
+     "q": "T-1001 工单现在是什么状态？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 4.94,
+       "error": "",
+       "trace": "runs\\agent\\TK01\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket"
+      ],
+      "steps": 2,
+      "latency_s": 4.94,
+      "error": "",
+      "trace": "runs\\agent\\TK01\\run-1.json"
+     }
+    },
+    {
+     "id": "TK02",
+     "q": "T-1002 工单的优先级是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "工单 T-1002 的优先级是 P2。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 4.17,
+       "error": "",
+       "trace": "runs\\agent\\TK02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "工单 T-1002 的优先级是 P2。",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket"
+      ],
+      "steps": 2,
+      "latency_s": 4.17,
+      "error": "",
+      "trace": "runs\\agent\\TK02\\run-1.json"
+     }
+    },
+    {
+     "id": "TK03",
+     "q": "T-9999 工单现在是什么状态？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "未找到工单 T-9999 的相关信息。",
+       "answerable": false,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 3.99,
+       "error": "",
+       "trace": "runs\\agent\\TK03\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "未找到工单 T-9999 的相关信息。",
+      "answerable": false,
+      "called_tools": [
+       "lookup_ticket"
+      ],
+      "steps": 2,
+      "latency_s": 3.99,
+      "error": "",
+      "trace": "runs\\agent\\TK03\\run-1.json"
+     }
+    },
+    {
+     "id": "TK04",
+     "q": "T-1004 涉及哪个报警码，处理结果是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "任务 T-1004 涉及的报警码是 ALM-2087，处理结果为：匹配网络重新调谐后恢复，已关闭",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 5.51,
+       "error": "",
+       "trace": "runs\\agent\\TK04\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "任务 T-1004 涉及的报警码是 ALM-2087，处理结果为：匹配网络重新调谐后恢复，已关闭",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket"
+      ],
+      "steps": 2,
+      "latency_s": 5.51,
+      "error": "",
+      "trace": "runs\\agent\\TK04\\run-1.json"
+     }
+    },
+    {
+     "id": "CA01",
+     "q": "某批次 24 片，良率 92.5%，良品多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "22.2"
+       ],
+       "tool_problems": [],
+       "answer": "达到最大步数，未能完成。",
+       "answerable": false,
+       "called_tools": [
+        "calculator"
+       ],
+       "steps": 3,
+       "latency_s": 10.93,
+       "error": "",
+       "trace": "runs\\agent\\CA01\\run-1.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "22.2"
+      ],
+      "tool_problems": [],
+      "answer": "达到最大步数，未能完成。",
+      "answerable": false,
+      "called_tools": [
+       "calculator"
+      ],
+      "steps": 3,
+      "latency_s": 10.93,
+      "error": "",
+      "trace": "runs\\agent\\CA01\\run-1.json"
+     }
+    },
+    {
+     "id": "CA02",
+     "q": "每片测试 45 秒，24 片需要多少分钟？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "24 片测试需要 18 分钟。",
+       "answerable": true,
+       "called_tools": [
+        "calculator"
+       ],
+       "steps": 2,
+       "latency_s": 4.35,
+       "error": "",
+       "trace": "runs\\agent\\CA02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "24 片测试需要 18 分钟。",
+      "answerable": true,
+      "called_tools": [
+       "calculator"
+      ],
+      "steps": 2,
+      "latency_s": 4.35,
+      "error": "",
+      "trace": "runs\\agent\\CA02\\run-1.json"
+     }
+    },
+    {
+     "id": "CA03",
+     "q": "3 个腔体，每个 12 片，一共多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "三个腔体，每个12片，一共36片。",
+       "answerable": true,
+       "called_tools": [
+        "calculator"
+       ],
+       "steps": 2,
+       "latency_s": 3.57,
+       "error": "",
+       "trace": "runs\\agent\\CA03\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "三个腔体，每个12片，一共36片。",
+      "answerable": true,
+      "called_tools": [
+       "calculator"
+      ],
+      "steps": 2,
+      "latency_s": 3.57,
+      "error": "",
+      "trace": "runs\\agent\\CA03\\run-1.json"
+     }
+    },
+    {
+     "id": "MX01",
+     "q": "T-1001 涉及的报警应该怎么处理？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket",
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "处理 ALM-1042 腔体压力异常的步骤如下：\n1. 暂停当前批次（lot），记录 wafer ID 与当前 step。\n2. 检查真空泵电流是否在正常区间。\n3. 用标准压力规校验传感器读数与显示值偏差。\n4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n5. 恢复前必须跑一片 monitor wafer 确认。\n\n参考资料：doc#0",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket",
+        "search_kb"
+       ],
+       "steps": 3,
+       "latency_s": 12.52,
+       "error": "",
+       "trace": "runs\\agent\\MX01\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "处理 ALM-1042 腔体压力异常的步骤如下：\n1. 暂停当前批次（lot），记录 wafer ID 与当前 step。\n2. 检查真空泵电流是否在正常区间。\n3. 用标准压力规校验传感器读数与显示值偏差。\n4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n5. 恢复前必须跑一片 monitor wafer 确认。\n\n参考资料：doc#0",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket",
+       "search_kb"
+      ],
+      "steps": 3,
+      "latency_s": 12.52,
+      "error": "",
+      "trace": "runs\\agent\\MX01\\run-1.json"
+     }
+    },
+    {
+     "id": "MX02",
+     "q": "T-1003 的批次良率是多少？如果 24 片，良品多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket",
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "批次良率为 92.5%，24 片中良品数量为 22 片（四舍五入）",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket",
+        "calculator"
+       ],
+       "steps": 3,
+       "latency_s": 7.06,
+       "error": "",
+       "trace": "runs\\agent\\MX02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "批次良率为 92.5%，24 片中良品数量为 22 片（四舍五入）",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket",
+       "calculator"
+      ],
+      "steps": 3,
+      "latency_s": 7.06,
+      "error": "",
+      "trace": "runs\\agent\\MX02\\run-1.json"
+     }
+    },
+    {
+     "id": "UA01",
+     "q": "EUV 光刻的曝光波长是多少纳米？",
+     "kb": "dram",
+     "answerable": false,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 4.96,
+       "error": "",
+       "trace": "runs\\agent\\UA01\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 4.96,
+      "error": "",
+      "trace": "runs\\agent\\UA01\\run-1.json"
+     }
+    },
+    {
+     "id": "UA02",
+     "q": "我们公司去年因为设备故障损失了多少产能？",
+     "kb": "dram",
+     "answerable": false,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 4.08,
+       "error": "",
+       "trace": "runs\\agent\\UA02\\run-1.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 4.08,
+      "error": "",
+      "trace": "runs\\agent\\UA02\\run-1.json"
+     }
+    }
+   ]
+  }
+ }
+}

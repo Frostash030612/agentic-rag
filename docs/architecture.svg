@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic RAG architecture</title>
+  <desc id="desc">Client calls FastAPI, auth and rate limit, then a bounded ReAct agent uses search, ticket and calculator tools with an LLM, writes traces, and shares data with RAG-only evaluation and CI/Docker.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5B6B82"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#2E75B6"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1F3864" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="#F6F8FC"/>
+  <text x="48" y="48" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#1F3864">Agentic RAG · production architecture</text>
+  <text x="48" y="76" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" fill="#5B6B82">Bounded ReAct loop · read-only tools · traces · deterministic evaluation · Docker/CI</text>
+
+  <!-- Client -->
+  <rect x="48" y="120" width="190" height="120" rx="14" fill="#FFFFFF" stroke="#C9D4E3" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="68" y="150" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#1F3864">Client</text>
+  <text x="68" y="176" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">curl / Web UI / SDK</text>
+  <text x="68" y="198" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">X-API-Key</text>
+  <text x="68" y="220" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">POST /v1/ask</text>
+
+  <!-- FastAPI edge -->
+  <rect x="292" y="104" width="260" height="152" rx="14" fill="#FFFFFF" stroke="#2E75B6" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="292" y="104" width="260" height="36" rx="14" fill="#2E75B6"/>
+  <text x="312" y="127" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">FastAPI edge</text>
+  <text x="312" y="164" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">API key auth · constant-time compare</text>
+  <text x="312" y="186" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">per-key rate limit · request ID</text>
+  <text x="312" y="208" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">Pydantic request/response models</text>
+  <text x="312" y="230" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">/v1/ask · /v1/tools · /v1/traces</text>
+
+  <!-- Agent loop -->
+  <rect x="606" y="104" width="250" height="152" rx="14" fill="#FFFFFF" stroke="#1F3864" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="606" y="104" width="250" height="36" rx="14" fill="#1F3864"/>
+  <text x="626" y="127" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Bounded ReAct loop</text>
+  <text x="626" y="164" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">max_steps · repeat detection</text>
+  <text x="626" y="186" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">JSON action protocol</text>
+  <text x="626" y="208" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">final validation · fallback</text>
+  <text x="626" y="230" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#1F2933">action → observation → retry</text>
+
+  <!-- Tools -->
+  <rect x="910" y="96" width="242" height="176" rx="14" fill="#FFFFFF" stroke="#15803D" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="910" y="96" width="242" height="36" rx="14" fill="#15803D"/>
+  <text x="930" y="119" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Read-only tools</text>
+  <text x="930" y="156" font-family="Consolas, Microsoft YaHei, monospace" font-size="12" fill="#1F2933">search_kb(query, kb, top_k)</text>
+  <text x="930" y="178" font-family="Consolas, Microsoft YaHei, monospace" font-size="12" fill="#1F2933">lookup_ticket(ticket_id)</text>
+  <text x="930" y="200" font-family="Consolas, Microsoft YaHei, monospace" font-size="12" fill="#1F2933">calculator(expression)</text>
+  <text x="930" y="226" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">schema · errors as Observation</text>
+  <text x="930" y="248" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">no eval/exec · no writes</text>
+
+  <!-- LLM -->
+  <rect x="606" y="336" width="250" height="112" rx="14" fill="#FFFFFF" stroke="#C9D4E3" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="626" y="366" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#1F3864">LLM provider</text>
+  <text x="626" y="392" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">OpenAI-compatible chat</text>
+  <text x="626" y="414" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">Qwen3-8B (configurable)</text>
+  <text x="626" y="436" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">thinking disabled by default</text>
+
+  <!-- Data -->
+  <rect x="910" y="336" width="242" height="132" rx="14" fill="#FFFFFF" stroke="#C9D4E3" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="930" y="366" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#1F3864">Data</text>
+  <text x="930" y="392" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">data/kb/&lt;id&gt;/index</text>
+  <text x="930" y="414" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">chunks.json · vectors.npy · meta</text>
+  <text x="930" y="436" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">data/tickets.json (mock)</text>
+
+  <!-- Trace + eval -->
+  <rect x="292" y="336" width="260" height="132" rx="14" fill="#FFFFFF" stroke="#B45309" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="312" y="366" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#B45309">Trace + evaluation</text>
+  <text x="312" y="392" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">runs/&lt;mode&gt;/&lt;task&gt;/run-*.json</text>
+  <text x="312" y="414" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">answer + trajectory + pass^k</text>
+  <text x="312" y="436" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">RAG-only vs Agent comparison</text>
+
+  <!-- Bottom CI/Docker -->
+  <rect x="292" y="520" width="860" height="92" rx="14" fill="#EEF4FB" stroke="#C9D4E3" stroke-width="1.5"/>
+  <text x="312" y="548" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#1F3864">Delivery</text>
+  <text x="312" y="572" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">Dockerfile (non-root) · docker compose · GitHub Actions: ruff + pytest + image smoke test</text>
+  <text x="312" y="594" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="12" fill="#5B6B82">No secrets in image · env-driven config · health/ready endpoints · trace replay</text>
+
+  <!-- Arrows -->
+  <line x1="238" y1="180" x2="286" y2="180" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="552" y1="180" x2="600" y2="180" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="856" y1="166" x2="904" y2="166" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="904" y1="206" x2="856" y2="206" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="256" x2="700" y2="330" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="760" y1="330" x2="760" y2="256" stroke="#2E75B6" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowBlue)"/>
+  <line x1="1000" y1="272" x2="1000" y2="330" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="600" y1="400" x2="556" y2="400" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="552" y1="468" x2="552" y2="514" stroke="#5B6B82" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="610" y="294" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#5B6B82">prompt / JSON</text>
+  <text x="770" y="294" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#2E75B6">response</text>
+  <text x="770" y="316" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#2E75B6">LLM call</text>
+  <text x="1010" y="306" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#5B6B82">read</text>
+  <text x="500" y="390" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#5B6B82">trace</text>
+  <text x="560" y="492" font-family="Microsoft YaHei, Segoe UI, sans-serif" font-size="11" fill="#5B6B82">build / test</text>
+</svg>

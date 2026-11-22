@@ -1,0 +1,687 @@
+{
+ "generated_at": "2026-11-14T17:47:02",
+ "tasks_file": "tasks.jsonl",
+ "reports": {
+  "agent": {
+   "started_at": "2026-11-14T17:43:46",
+   "model": "Qwen/Qwen3-8B",
+   "embed_model": "BAAI/bge-m3",
+   "summary": {
+    "mode": "agent",
+    "runs": 3,
+    "n_tasks": 8,
+    "answer_rate": 0.75,
+    "task_success_rate": 0.75,
+    "tool_selection_rate": 1.0,
+    "passk_rate": 0.75,
+    "avg_steps": 2.25,
+    "avg_latency_s": 8.19,
+    "p95_latency_s": 12.69,
+    "errors": 0
+   },
+   "tasks": [
+    {
+     "id": "KB01",
+     "q": "CoT 和 ReAct 的本质区别是什么？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "CoT 和 ReAct 的本质区别如下：\n1. CoT 是纯推理链，而 ReAct 包含推理、行动和观察的交替过程。\n2. CoT 通常不涉及外部环境，而 ReAct 依赖工具和外部反馈。\n3. ReAct 的纠错主要依赖外部真实反馈，而 CoT 主要靠模型自省。\n4. CoT 是 ReAct 的子集，ReAct 的 Thought 部分即为 CoT，二者不是竞争关系。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.88,
+       "error": "",
+       "trace": "runs\\agent\\KB01\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "CoT 和 ReAct 的本质区别如下：\n1. CoT 是纯推理链，而 ReAct 包含推理、行动和观察的交替过程。\n2. CoT 通常不涉及外部环境，而 ReAct 依赖工具和外部反馈。\n3. ReAct 的纠错主要依赖外部真实反馈，而 CoT 主要靠模型自省。\n4. CoT 是 ReAct 的子集，ReAct 的 Thought 部分即为 CoT，二者不是竞争关系。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 8.56,
+       "error": "",
+       "trace": "runs\\agent\\KB01\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "CoT 和 ReAct 的本质区别如下：\n1. CoT 是纯推理链，而 ReAct 包含推理、行动和观察的交替过程。\n2. CoT 通常不涉及外部环境，而 ReAct 依赖工具和外部反馈。\n3. ReAct 的纠错主要依赖外部真实反馈，而 CoT 主要靠模型自省。\n4. CoT 是 ReAct 的子集，ReAct 的 Thought 部分即为 CoT，二者不是竞争关系。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.43,
+       "error": "",
+       "trace": "runs\\agent\\KB01\\run-3.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "CoT 和 ReAct 的本质区别如下：\n1. CoT 是纯推理链，而 ReAct 包含推理、行动和观察的交替过程。\n2. CoT 通常不涉及外部环境，而 ReAct 依赖工具和外部反馈。\n3. ReAct 的纠错主要依赖外部真实反馈，而 CoT 主要靠模型自省。\n4. CoT 是 ReAct 的子集，ReAct 的 Thought 部分即为 CoT，二者不是竞争关系。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 9.88,
+      "error": "",
+      "trace": "runs\\agent\\KB01\\run-1.json"
+     }
+    },
+    {
+     "id": "KB05",
+     "q": "长上下文窗口越来越大，是不是就不需要 RAG 了？",
+     "kb": "ai_prep",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "成本/费用/价格"
+       ],
+       "tool_problems": [],
+       "answer": "长上下文窗口和 RAG 是互补而非替代的关系。即使窗口较大，仍需通过 RAG 精准控制上下文内容，以避免 Lost in the Middle 和上下文腐化问题。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 6.94,
+       "error": "",
+       "trace": "runs\\agent\\KB05\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "成本/费用/价格"
+       ],
+       "tool_problems": [],
+       "answer": "长上下文窗口和 RAG 是互补而非替代的关系。即使窗口较大，仍需通过 RAG 精准控制上下文内容，以避免 Lost in the Middle 和上下文腐化问题。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 7.62,
+       "error": "",
+       "trace": "runs\\agent\\KB05\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "成本/费用/价格"
+       ],
+       "tool_problems": [],
+       "answer": "长上下文窗口和 RAG 是互补的，而非替代。即使窗口大，仍需通过 RAG 精准控制上下文内容，以避免 Lost in the Middle 和上下文腐化问题。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 7.58,
+       "error": "",
+       "trace": "runs\\agent\\KB05\\run-3.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "成本/费用/价格"
+      ],
+      "tool_problems": [],
+      "answer": "长上下文窗口和 RAG 是互补而非替代的关系。即使窗口较大，仍需通过 RAG 精准控制上下文内容，以避免 Lost in the Middle 和上下文腐化问题。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 6.94,
+      "error": "",
+      "trace": "runs\\agent\\KB05\\run-1.json"
+     }
+    },
+    {
+     "id": "KB12",
+     "q": "ALM-1042 报警的触发条件和处理步骤是什么？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "ALM-1042 报警的触发条件和处理步骤如下：\n1. 触发条件：腔体压力偏离设定值超过 8% 且持续 3 秒以上。\n2. 处理步骤：\n   - 暂停当前批次（lot），记录 wafer ID 与当前 step。\n   - 检查真空泵电流是否在正常区间。\n   - 用标准压力规校验传感器读数与显示值偏差。\n   - 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n   - 恢复前必须跑一片 monitor wafer 确认。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 10.19,
+       "error": "",
+       "trace": "runs\\agent\\KB12\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "ALM-1042 报警的触发条件和处理步骤如下：\n1. 触发条件：腔体压力偏离设定值超过 8% 且持续 3 秒以上。\n2. 处理步骤：\n   - 暂停当前批次（lot），记录 wafer ID 与当前 step。\n   - 检查真空泵电流是否在正常区间。\n   - 用标准压力规校验传感器读数与显示值偏差。\n   - 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n   - 恢复前必须跑一片 monitor wafer 确认。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 10.32,
+       "error": "",
+       "trace": "runs\\agent\\KB12\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "ALM-1042 报警的触发条件是：腔体压力偏离设定值超过 8% 且持续 3 秒以上。处理步骤包括：1. 暂停当前批次（lot），记录 wafer ID 与当前 step；2. 检查真空泵电流是否在正常区间；3. 用标准压力规校验传感器读数与显示值偏差；4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间；5. 恢复前必须跑一片 monitor wafer 确认。",
+       "answerable": true,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 9.11,
+       "error": "",
+       "trace": "runs\\agent\\KB12\\run-3.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "ALM-1042 报警的触发条件和处理步骤如下：\n1. 触发条件：腔体压力偏离设定值超过 8% 且持续 3 秒以上。\n2. 处理步骤：\n   - 暂停当前批次（lot），记录 wafer ID 与当前 step。\n   - 检查真空泵电流是否在正常区间。\n   - 用标准压力规校验传感器读数与显示值偏差。\n   - 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n   - 恢复前必须跑一片 monitor wafer 确认。",
+      "answerable": true,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 10.19,
+      "error": "",
+      "trace": "runs\\agent\\KB12\\run-1.json"
+     }
+    },
+    {
+     "id": "TK01",
+     "q": "T-1001 工单现在是什么状态？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 5.51,
+       "error": "",
+       "trace": "runs\\agent\\TK01\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 5.78,
+       "error": "",
+       "trace": "runs\\agent\\TK01\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 5.61,
+       "error": "",
+       "trace": "runs\\agent\\TK01\\run-3.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "工单 T-1001 的状态是 open，优先级为 P1，由设备工程师负责。相关报警为 ALM-1042，备注为：已更换压力传感器，待跑 monitor wafer 复测。",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket"
+      ],
+      "steps": 2,
+      "latency_s": 5.51,
+      "error": "",
+      "trace": "runs\\agent\\TK01\\run-1.json"
+     }
+    },
+    {
+     "id": "TK03",
+     "q": "T-9999 工单现在是什么状态？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "未找到工单 T-9999 的相关信息。",
+       "answerable": false,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 4.14,
+       "error": "",
+       "trace": "runs\\agent\\TK03\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "未找到工单 T-9999 的相关信息。",
+       "answerable": false,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 3.46,
+       "error": "",
+       "trace": "runs\\agent\\TK03\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "未找到工单 T-9999 的相关信息。",
+       "answerable": false,
+       "called_tools": [
+        "lookup_ticket"
+       ],
+       "steps": 2,
+       "latency_s": 4.32,
+       "error": "",
+       "trace": "runs\\agent\\TK03\\run-3.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "未找到工单 T-9999 的相关信息。",
+      "answerable": false,
+      "called_tools": [
+       "lookup_ticket"
+      ],
+      "steps": 2,
+      "latency_s": 4.14,
+      "error": "",
+      "trace": "runs\\agent\\TK03\\run-1.json"
+     }
+    },
+    {
+     "id": "CA01",
+     "q": "某批次 24 片，良率 92.5%，良品多少片？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "calculator"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "22.2"
+       ],
+       "tool_problems": [],
+       "answer": "达到最大步数，未能完成。",
+       "answerable": false,
+       "called_tools": [
+        "calculator"
+       ],
+       "steps": 3,
+       "latency_s": 11.6,
+       "error": "",
+       "trace": "runs\\agent\\CA01\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "22.2"
+       ],
+       "tool_problems": [],
+       "answer": "达到最大步数，未能完成。",
+       "answerable": false,
+       "called_tools": [
+        "calculator"
+       ],
+       "steps": 3,
+       "latency_s": 11.37,
+       "error": "",
+       "trace": "runs\\agent\\CA01\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": false,
+       "answer_ok": false,
+       "tool_ok": true,
+       "answer_problems": [
+        "22.2"
+       ],
+       "tool_problems": [],
+       "answer": "达到最大步数，未能完成。",
+       "answerable": false,
+       "called_tools": [
+        "calculator"
+       ],
+       "steps": 3,
+       "latency_s": 10.58,
+       "error": "",
+       "trace": "runs\\agent\\CA01\\run-3.json"
+      }
+     ],
+     "passk": false,
+     "first": {
+      "run": 1,
+      "success": false,
+      "answer_ok": false,
+      "tool_ok": true,
+      "answer_problems": [
+       "22.2"
+      ],
+      "tool_problems": [],
+      "answer": "达到最大步数，未能完成。",
+      "answerable": false,
+      "called_tools": [
+       "calculator"
+      ],
+      "steps": 3,
+      "latency_s": 11.6,
+      "error": "",
+      "trace": "runs\\agent\\CA01\\run-1.json"
+     }
+    },
+    {
+     "id": "MX01",
+     "q": "T-1001 涉及的报警应该怎么处理？",
+     "kb": "dram",
+     "answerable": true,
+     "expected_tools": [
+      "lookup_ticket",
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "处理 ALM-1042 腔体压力异常的步骤如下：\n1. 暂停当前批次（lot），记录 wafer ID 与当前 step。\n2. 检查真空泵电流是否在正常区间。\n3. 用标准压力规校验传感器读数与显示值偏差。\n4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n5. 恢复前必须跑一片 monitor wafer 确认。\n\n相关工单：T-1001，当前状态为 open，优先级为 P1，已更换压力传感器，待复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket",
+        "search_kb"
+       ],
+       "steps": 3,
+       "latency_s": 13.3,
+       "error": "",
+       "trace": "runs\\agent\\MX01\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "处理 ALM-1042 腔体压力异常的步骤如下：\n1. 暂停当前批次（lot），记录 wafer ID 与当前 step。\n2. 检查真空泵电流是否在正常区间。\n3. 用标准压力规校验传感器读数与显示值偏差。\n4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n5. 恢复前必须跑一片 monitor wafer 确认。\n\n相关工单：T-1001，当前状态为 open，优先级为 P1，已更换压力传感器，待复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket",
+        "search_kb"
+       ],
+       "steps": 3,
+       "latency_s": 12.69,
+       "error": "",
+       "trace": "runs\\agent\\MX01\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "处理 ALM-1042 腔体压力异常的步骤如下：\n1. 暂停当前批次（lot），记录 wafer ID 与当前 step。\n2. 检查真空泵电流是否在正常区间。\n3. 用标准压力规校验传感器读数与显示值偏差。\n4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n5. 恢复前必须跑一片 monitor wafer 确认。\n\n相关工单 T-1001 的备注：已更换压力传感器，待跑 monitor wafer 复测。",
+       "answerable": true,
+       "called_tools": [
+        "lookup_ticket",
+        "search_kb"
+       ],
+       "steps": 3,
+       "latency_s": 11.98,
+       "error": "",
+       "trace": "runs\\agent\\MX01\\run-3.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "处理 ALM-1042 腔体压力异常的步骤如下：\n1. 暂停当前批次（lot），记录 wafer ID 与当前 step。\n2. 检查真空泵电流是否在正常区间。\n3. 用标准压力规校验传感器读数与显示值偏差。\n4. 偏差超过 2% 则更换传感器；否则检查 MFC 响应时间。\n5. 恢复前必须跑一片 monitor wafer 确认。\n\n相关工单：T-1001，当前状态为 open，优先级为 P1，已更换压力传感器，待复测。",
+      "answerable": true,
+      "called_tools": [
+       "lookup_ticket",
+       "search_kb"
+      ],
+      "steps": 3,
+      "latency_s": 13.3,
+      "error": "",
+      "trace": "runs\\agent\\MX01\\run-1.json"
+     }
+    },
+    {
+     "id": "UA01",
+     "q": "EUV 光刻的曝光波长是多少纳米？",
+     "kb": "dram",
+     "answerable": false,
+     "expected_tools": [
+      "search_kb"
+     ],
+     "runs": [
+      {
+       "run": 1,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 5.05,
+       "error": "",
+       "trace": "runs\\agent\\UA01\\run-1.json"
+      },
+      {
+       "run": 2,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足",
+       "answerable": false,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 5.22,
+       "error": "",
+       "trace": "runs\\agent\\UA01\\run-2.json"
+      },
+      {
+       "run": 3,
+       "success": true,
+       "answer_ok": true,
+       "tool_ok": true,
+       "answer_problems": [],
+       "tool_problems": [],
+       "answer": "资料不足，未找到 EUV 光刻的曝光波长信息。",
+       "answerable": false,
+       "called_tools": [
+        "search_kb"
+       ],
+       "steps": 2,
+       "latency_s": 6.32,
+       "error": "",
+       "trace": "runs\\agent\\UA01\\run-3.json"
+      }
+     ],
+     "passk": true,
+     "first": {
+      "run": 1,
+      "success": true,
+      "answer_ok": true,
+      "tool_ok": true,
+      "answer_problems": [],
+      "tool_problems": [],
+      "answer": "资料不足",
+      "answerable": false,
+      "called_tools": [
+       "search_kb"
+      ],
+      "steps": 2,
+      "latency_s": 5.05,
+      "error": "",
+      "trace": "runs\\agent\\UA01\\run-1.json"
+     }
+    }
+   ]
+  }
+ }
+}
