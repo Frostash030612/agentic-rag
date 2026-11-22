@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Deterministic evaluation harness: answer checks + trajectory checks."""
 from __future__ import annotations
 

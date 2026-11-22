@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Minimal OpenAI-compatible chat client used by the agent loop."""
 from __future__ import annotations
 

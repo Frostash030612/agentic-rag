@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Command line entry point: ask / eval / demo / serve."""
 from __future__ import annotations
 

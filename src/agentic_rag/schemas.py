@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Pydantic request/response models for the HTTP API."""
 from __future__ import annotations
 

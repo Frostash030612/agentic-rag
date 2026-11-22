@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Bounded ReAct loop, RAG-only baseline, and trace persistence."""
 from __future__ import annotations
 

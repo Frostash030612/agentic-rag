@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """FastAPI production shell.
 
 Endpoints:

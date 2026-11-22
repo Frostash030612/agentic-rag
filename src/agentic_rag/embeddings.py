@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Embedding client and offline hash baseline.
 
 The bundled indexes were built with BAAI/bge-m3 (1024-d). If you change

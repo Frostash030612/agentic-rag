@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """API key authentication and an in-memory per-key rate limiter.
 
 The limiter is deliberately process-local. For a multi-replica deployment,

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Text helpers shared by retrieval and evaluation."""
 from __future__ import annotations
 

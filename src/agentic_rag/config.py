@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Configuration loaded from environment variables.
 
 The service is intentionally env-driven: Docker, CI, and local runs all use the

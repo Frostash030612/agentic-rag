@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Tool registry and three read-only tools.
 
 Application-engineering rules:

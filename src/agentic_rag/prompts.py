@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Prompt contracts for the ReAct agent and the RAG-only baseline."""
 from __future__ import annotations
 

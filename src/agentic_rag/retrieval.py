@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Local hybrid retrieval: BM25 + dense vectors + RRF/weighted fusion.
 
 This is a compact, dependency-light port of the retrieval layer used in the

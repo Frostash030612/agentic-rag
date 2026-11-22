@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Process-level wiring shared by the CLI and the FastAPI app."""
 from __future__ import annotations
 
