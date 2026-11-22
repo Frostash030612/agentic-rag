@@ -61,7 +61,7 @@ class Settings:
     allow_anonymous: bool = False
 
     @classmethod
-    def from_env(cls, *, env_file: str | Path | None = ".env") -> "Settings":
+    def from_env(cls, *, env_file: str | Path | None = ".env") -> Settings:
         if env_file:
             load_dotenv(Path(env_file))
         keys = tuple(

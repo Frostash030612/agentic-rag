@@ -4,7 +4,6 @@ from __future__ import annotations
 import json
 import time
 from collections import Counter
-from collections.abc import Callable
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from pathlib import Path
