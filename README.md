@@ -4,6 +4,7 @@
 > deterministic evaluation, and a FastAPI/Docker/CI production shell.
 
 ![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)
+[![CI](https://github.com/Frostash030612/agentic-rag/actions/workflows/ci.yml/badge.svg)](https://github.com/Frostash030612/agentic-rag/actions/workflows/ci.yml)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688)
 ![Docker](https://img.shields.io/badge/docker-ready-2496ED)
 ![License](https://img.shields.io/badge/license-MIT-green)
